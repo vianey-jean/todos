@@ -1,18 +1,35 @@
-# This project was [Create React App](https://github.com/facebook/create-react-app).  
-![made-with-node](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white) ![made-with-react](https://img.shields.io/badge/-ReactJs-61DAFB?style=for-the-badge&logo=react&logoColor=FFFFFF) ![made-with-sass](	https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white) 
+## React Tutorial from Scratch– A Step-by-Step Guide (2021 Update)
 
-# Getting my source code public
+This repo holds all the code for a React todos application. You can follow the step by step [guide to building the awesome project here](https://ibaslogic.com/react-tutorial-for-beginners/).
 
-git clone https://github.com/vianey-jean/todos.git
+## [Click to See the Todos App](https://ibaslogic.github.io/react-todo-project/)
 
-# to install app, just
+The code is available in the `src` folder. In there, you’ll see two folders named `classBased` and `functionBased` holding the class component and function component code respectively.
 
-### `npm install`
+### Clone the project
 
-# In the project directory, you can run:
+You can download or clone this project by running this command from your terminal:
 
-### `npm start`
+```
+git clone https://github.com/Ibaslogic/react-todo-app
+```
 
-# view the website online
+This will create a directory in the name of the project folder.
 
-https://vianey-jean.github.io/todos/
+Once you have the project files and folders bootstrapped, open it with your text editor.
+
+Next, switch inside the project directory and run:
+
+```
+npm install
+```
+
+This will install all the necessary dependencies in the local `node_modules` folder.
+
+Finally, start your development server by running:
+
+```
+npm start
+```
+
+You should see the app in your browser address bar at [http://localhost:3000](http://localhost:3000)

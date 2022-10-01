@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react"
-import { Route} from "react-router-dom"
+import { Route, Switch } from "react-router-dom"
 import Header from "./components/Header"
-import EntreTodo from "./components/EntreTodo"
+import EntreAFaire from "./components/EntreAFaire"
 import ListeAFaire from "./components/ListeAFaire";
 import { v4 as uuidv4 } from "uuid";
 
 const App = () => {
 
-  const [todos, setTodos] = useState(getInitialTodos())
+  const [todos, setTodos] = useState(initialAFaire())
 
   useEffect(() => {
     // storing todos items
@@ -15,25 +15,25 @@ const App = () => {
     localStorage.setItem("todos", temp)
   }, [todos])
 
-  function getInitialTodos() {
+  function initialAFaire() {
     // getting stored items
     const temp = localStorage.getItem("todos")
     const savedTodos = JSON.parse(temp)
     return savedTodos || [] 
   }
  
-  const handleChange = id => {
+  const changerAFaire = id => {
     setTodos(prevState => prevState.map((todo) => {
       if (todo.id === id) {
         return {
-          ...todo, complete: !todo.complete
+          ...todo, completed: !todo.completed
         }
       }
       return todo
     }))
   }
 
-  const delTodo = id => {
+  const suppAFaire = id => {
     setTodos([
       ...todos.filter(todo => {
         return todo.id !== id
@@ -41,16 +41,16 @@ const App = () => {
     ])
   };
 
-  const addChoseAFaire = title => {
+  const ajoutAFaire = title => {
     const newTodo = {    
       id: uuidv4(),    
       title: title,    
-      complete: false  
+      completed: false  
     };
     setTodos([...todos, newTodo])
   };
 
-  const setUpdate = (updatedTitle, id) => {
+  const ajourAFaire = (updatedTitle, id) => {
     setTodos(
       todos.map(todo => {
         if (todo.id === id) {
@@ -63,21 +63,22 @@ const App = () => {
 
   return (   
     <>
-      <Route>
+      <Switch>
+        <Route >
           <div className="container">
             <div className="inner">
               <Header />
-              <EntreTodo addTodoProps={addChoseAFaire} />
+              <EntreAFaire addTodoProps={ajoutAFaire} />
               <ListeAFaire 
                 todos={todos} 
-                handleChangeProps={handleChange} 
-                deleteTodoProps={delTodo}
-                setUpdate ={setUpdate} 
+                handleChangeProps={changerAFaire} 
+                deleteTodoProps={suppAFaire}
+                ajourAFaire ={ajourAFaire} 
               />
             </div>
           </div>
         </Route>
-      
+      </Switch>
     </>
   );
 }
