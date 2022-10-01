@@ -2,22 +2,22 @@ import React, { useState } from "react"
 import { FaPlusCircle } from "react-icons/fa";
 
 const EntreTodo = (props) => {
-  const [entreText, changerEntreText] = useState({
+  const [inputText, changerinputText] = useState({
     title: "",
   })
 
-  const pourChanger = e => {
-changerEntreText({
-      ...entreText,
+  const onChange = e => {
+changerinputText({
+      ...inputText,
       [e.target.name]: e.target.value,
     })
   }
 
   const ajouter = e => {
     e.preventDefault();
-    if(entreText.title.trim()) {
-      props.addTodoProps(entreText.title);
-  changerEntreText({
+    if(inputText.title.trim()) {
+      props.addTodoProps(inputText.title);
+  changerinputText({
         title: "",
       })
     } else {
@@ -31,9 +31,9 @@ changerEntreText({
         type="text"
         className="input-text"
         placeholder="Ajouter les choses a faire ici..."
-        value={entreText.title}
+        value={inputText.title}
         name="title"          
-        pourChanger={pourChanger}
+        onChange={onChange}
       />
       <button className="input-submit">
         <FaPlusCircle style={{ color: "darkcyan", 
